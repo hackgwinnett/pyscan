@@ -1,0 +1,17 @@
+{
+    "i1": "val1",
+    "i2": "val2",
+    "i3": "val3",
+
+    "g1": {
+        "property1": "groupval1",
+        "property2": "groupval2",
+        "property3": "groupval3"
+    },
+
+    "g2": {
+        "property1": "gval1",
+        "property2": "gval2",
+        "property3": "gval3"
+    }
+}
