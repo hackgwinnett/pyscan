@@ -37,3 +37,20 @@ def get_indiv(json_path):
             result.pop(i)
     
     return result
+
+# read an individual property:
+def read_indiv(json_path, indiv_name):
+
+    lines = util.read(json_path)
+    for i in range(len(lines)):
+        line = lines[i]
+        if not util.in_group(json_path, i) and line != "{" and line != "}":
+            name = line.split(": ")[0]
+            name = name.replace("\"", "")
+            if name == indiv_name:
+                val = line.split(": ")[1]
+                val = val.replace("\"", "")
+                val = val.replace(",", "")
+                return val
+
+    return "error: no value found"
