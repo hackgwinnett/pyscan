@@ -54,3 +54,24 @@ def read_indiv(json_path, indiv_name):
                 return val
 
     return "error: no value found"
+
+# return a group property:
+def read_group(json_path, group, name):
+    lines = util.read(json_path)
+    lines = util.clean(lines)
+    for i in range(len(lines)):
+        if group in lines[i]:
+            raw = read_group_helper(lines, i, name)
+            raw = str.replace(raw, ",", "")
+            val = raw.split(" ")[1]
+            return val
+
+    return "error: no value found"
+
+# helper group property function:
+def read_group_helper(lines, n, name):
+    i = n
+    while (i < len(lines)):
+        if name in lines[i]:
+            return lines[i]
+        i+=1
